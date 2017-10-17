@@ -8,12 +8,13 @@
 
 import UIKit
 import Popover
+import SnapKit
 
 class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var popover: Popover!
     
-    let menus = ["me", "me2", "me3"]
+    let menus = ["me", "me2", "logout"]
     
     @IBOutlet weak var more: UIBarButtonItem!
     
@@ -22,27 +23,42 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func moreMenu(_ sender: UIBarButtonItem) {
-        let startPoint = CGPoint(x: self.view.frame.width - 60, y: 55)
+        
+        let startPoint = CGPoint(x: self.view.frame.width - 30, y: 67)
 
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
+        let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
 
-        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 180))
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 180))
         aView.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { (m) in
+            m.width.equalToSuperview()
+            m.height.equalToSuperview().offset(-18)
+            m.top.equalToSuperview().offset(18)
+            m.left.equalToSuperview()
+        }
         
         popover = Popover(options: nil, showHandler: nil, dismissHandler: nil)
         popover.show(aView, point: startPoint)
-//        let startPoint = CGPoint(x: self.view.frame.width - 60, y: 55)
-//        let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 180))
-//        let popover = Popover(options: nil, showHandler: nil, dismissHandler: nil)
-//        popover.show(aView, point: startPoint)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(menus[indexPath.row])
         popover.dismiss()
+        print(menus[indexPath.row])
+        switch indexPath.row {
+        case 2:
+            logout()
+        default:
+            print("nothing to do")
+        }
+    }
+    
+    func logout() {
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -56,6 +56,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-Nn-D6P">
                                         <rect key="frame" x="0.0" y="76" width="359" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="login"/>
                                         <connections>
                                             <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ylS-9f-veB"/>

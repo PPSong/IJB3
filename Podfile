@@ -8,5 +8,5 @@ target 'IJB3' do
   # Pods for IJB3
   pod 'Toaster'
   pod 'Popover'
-  
+  pod 'SnapKit', '~> 4.0.0'
 end
