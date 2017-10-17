@@ -25,7 +25,8 @@ class LoginViewController: UIViewController {
             return
         }
         
-        print(username, password)
+        let mainViewController = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
+        present(mainViewController!, animated: true, completion: nil)
     }
     
 }

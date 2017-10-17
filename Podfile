@@ -7,4 +7,6 @@ target 'IJB3' do
 
   # Pods for IJB3
   pod 'Toaster'
+  pod 'Popover'
+  
 end
