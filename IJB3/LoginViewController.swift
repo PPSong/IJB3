@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class LoginViewController: UIViewController {
 
@@ -20,7 +21,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func attemptLogin(_ sender: UIButton) {
         guard let username = username.text, let password = password.text, !(username.isEmpty), !(password.isEmpty) else {
-            print("empty")
+            Toast(text: "empty").show()
             return
         }
         
